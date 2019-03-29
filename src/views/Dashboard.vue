@@ -68,7 +68,6 @@
           { title: 'Code up the homepage', person: 'Sam', due: '1st June 2019', status: 'ongoing' },
           { title: 'Design video thumbnails', person: 'Tom', due: '1st June 2019', status: 'overdue' },
           { title: 'Create a community forum', person: 'John', due: '20th Oct 2019', status: 'overdue' },
-
       ]
       }
     },
