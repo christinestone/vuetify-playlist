@@ -4,22 +4,30 @@
       <v-container class="my-5">
 
         <v-layout row class="mb-3">
-          <v-btn small flat color="grey" @click="sortBy('title')">
-            <v-icon left small>folder</v-icon>
-            <span class="caption text-lowercase">By project name</span>
-          </v-btn>
-          <v-btn small flat color="grey" @click="sortBy('person')">
-            <v-icon left small>person</v-icon>
-            <span class="caption text-lowercase">By person</span>
-          </v-btn>
-          <v-btn small flat color="grey" @click="sortBy('due')">
+          <v-tooltip top>
+            <v-btn small flat color="grey" @click="sortBy('title')" slot="activator">
+              <v-icon left small>folder</v-icon>
+            </v-btn>
+            <span>Sort projects by project name</span>
+          </v-tooltip>
+          <v-tooltip top>
+            <v-btn small flat color="grey" @click="sortBy('person')" slot="activator">
+              <v-icon left small>person</v-icon>
+            </v-btn>
+            <span>Sort projects by person</span>
+          </v-tooltip>
+          <v-tooltip top>
+          <v-btn small flat color="grey" @click="sortBy('due')" slot="activator">
             <v-icon left small>calendar_today</v-icon>
-            <span class="caption text-lowercase">By due date</span>
           </v-btn>
-          <v-btn small flat color="grey" @click="sortBy('status')">
+            <span>Sort projects by due date</span>
+          </v-tooltip>
+          <v-tooltip top>
+            <v-btn small flat color="grey" @click="sortBy('status')" slot="activator">
             <v-icon left small>done</v-icon>
-            <span class="caption text-lowercase">By status</span>
           </v-btn>
+            <span>Sort projects by status</span>
+          </v-tooltip>
         </v-layout>
 
         <v-card flat v-for="project in projects" :key="project.title">
