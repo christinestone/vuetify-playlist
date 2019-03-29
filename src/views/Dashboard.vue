@@ -2,25 +2,27 @@
   <div class="dashboard">
     <h1 class="subheading grey--text">Dashboard</h1>
       <v-container class="my-5">
-        <v-card flat class="pa-3">
-          <v-layout row wrap>
+        <v-card flat v-for="project in projects" :key="project.title">
+          <v-layout row wrap :class="`pa-3 project ${project.status}`">
+
             <v-flex xs12 md6>
               <div class="caption grey--text">Project Title</div>
-              <div>Create a new website</div>
+              <div >{{ project.title }}</div>
             </v-flex>
             <v-flex xs6 sm4 md2>
               <div class="caption grey--text">Person</div>
-              <div>The Net Ninja</div>
+              <div>{{ project.person }}</div>
             </v-flex>
             <v-flex xs6 sm4 md2>
               <div class="caption grey--text">Due by</div>
-              <div>1st June 2019</div>
+              <div>{{ project.due }}</div>
             </v-flex>
             <v-flex xs6 sm4 md2>
               <div class="caption grey--text">Status</div>
-              <div>ongoing</div>
+              <div>{{ project.status }}</div>
             </v-flex>
           </v-layout>
+          <v-divider></v-divider>
         </v-card>
 
       </v-container>
@@ -31,6 +33,27 @@
 
 
   export default {
+    data() {
+      return {
+        projects: [
+          { title: 'Design a new website', person: 'The Net Ninja', due: '1st June 2019', status: 'complete' },
+          { title: 'Code up the homepage', person: 'Sam', due: '1st June 2019', status: 'ongoing' },
+          { title: 'Design video thumbnails', person: 'Tom', due: '1st June 2019', status: 'overdue' },
+          { title: 'Create a community forum', person: 'John', due: '20th Oct 2019', status: 'overdue' },
 
+      ]
+      }
+    }
   }
 </script>
+<style>
+  .project.complete {
+    border-left: 4px solid #3cd1c2;
+  }
+  .project.ongoing {
+    border-left: 4px solid orange;
+  }
+  .project.overdue {
+    border-left: 4px solid tomato;
+  }
+</style>
